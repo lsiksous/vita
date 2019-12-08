@@ -1,0 +1,86 @@
+% Configure page margins with geometry
+%\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-orange}
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{CA63A8}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+%\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+\renewcommand{\acvHeaderSocialSep}{\quad\cdotp\quad}
+\renewcommand{\acvHeaderIconSep}{~}
+
+%\newcommand{\cvcite}[1]{\citetitle{#1}~\cite{#1}}
+\newcommand{\cvcite}[1]{\cite{#1}}
+
+% defernumbers=true makes the "Publications" section label the entries
+% consecutively, instead of in some semi-random order determined by
+% LaTeX.
+\usepackage[defernumbers=true,style=numeric,sorting=ydnt]{biblatex}
+\addbibresource{zamboni-pubs.bib}
+\addbibresource{zamboni-patents.bib}
+\defbibheading{cvbibsection}[\bibname]{\cvsubsection{#1}}
+
+% Some font redefinitions
+\renewcommand*{\bodyfontlight}{\sourcesanspro}
+\renewcommand*{\bibfont}{\paragraphstyle}
+\renewcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+\renewcommand*{\subsectionstyle}{\entrytitlestyle}
+
+% For producing the "private" (non web site) version of the CV,
+% set \makeprivatevita=1. By default, the "public" version is
+% produced, for safety
+\newif\ifprivatevita
+\ifx\makeprivatevita\undefined
+  \privatevitafalse
+\else
+  \privatevitatrue
+\fi
+
+% The \privatevita and \publicvita commands can be used
+% to make things appear only in the corresponding version.
+\newcommand{\privatevita}[1]{\ifprivatevita #1 \fi}
+\newcommand{\publicvita}[1]{\ifprivatevita\else #1 \fi}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+\photo[right,noedge]{./images/foto_diego.png}
+\name{Diego}{Zamboni}
+\position{IT Security Architect{\enskip\cdotp\enskip}Computer Scientist{\enskip\cdotp\enskip}Team and Project Leader}
+
+\privatevita{
+  \address{Glärnischstrasse 15, 8803 Rüschlikon, Switzerland}
+  \mobile{+41-79-756-3717}
+  \extrainfo{Swiss residence permit B}
+}
+
+\email{diego@zzamboni.org}
+\homepage{zzamboni.org}
+\linkedin{zzamboni}
+\github{zzamboni}
+% \gitlab{zzamboni}
+\stackoverflow{5562}{zzamboni}
+\twitter{@zzamboni}
+%\skype{zzamboni}
+% \reddit{reddit-id}
+
+% \quote{``Be the change that you want to see in the world."}
